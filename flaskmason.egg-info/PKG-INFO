@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: flaskmason
-Version: 0.1
+Version: 0.1.2
 Summary: A CLI tool to generate a Django-like structure for Flask projects
 Home-page: https://github.com/Akash-nath29/flaskgen
 Author: Akash Nath
@@ -105,7 +105,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 
-[Your Name](https://github.com/Akash-nath29)
+[Akash Nath](https://www.akashnath.me/)
 
 ## Acknowledgements
 

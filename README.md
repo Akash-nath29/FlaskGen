@@ -89,7 +89,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 
-[Your Name](https://github.com/Akash-nath29)
+[Akash Nath](https://www.akashnath.me/)
 
 ## Acknowledgements
 

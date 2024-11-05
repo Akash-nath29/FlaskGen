@@ -176,7 +176,7 @@ class DashboardForm(FlaskForm):
 }
 
 
-def create_file(path):
+def create_file(path, content):
     content = file_templates.get(path, "# " + os.path.basename(path))
     with open(path, "w") as file:
         file.write(content)

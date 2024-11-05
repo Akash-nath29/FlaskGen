@@ -1,3 +1,19 @@
+Metadata-Version: 2.1
+Name: flaskmason
+Version: 0.1
+Summary: A CLI tool to generate a Django-like structure for Flask projects
+Home-page: https://github.com/Akash-nath29/flaskgen
+Author: Akash Nath
+Author-email: devakash2905@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Flask>=2.0
+Requires-Dist: Flask-SQLAlchemy>=2.5
+Requires-Dist: Flask-WTF>=0.15
+
 # FlaskMason
 
 FlaskMason is a command-line tool designed to quickly scaffold Flask applications with a Django-like project structure. It automates the creation of a boilerplate project with organized blueprints, configuration files, and other essential components, allowing developers to focus on building features instead of setting up their environment.
@@ -28,24 +44,24 @@ This command will generate a new directory called `<project_name>` containing th
 
 ```
 <project_name>/
-├── app.py
-├── config.py
-├── requirements.txt
-├── .env
-├── blueprints/
-│   ├── __init__.py
-│   ├── auth/
-│   │   ├── __init__.py
-│   │   ├── views.py
-│   │   ├── models.py
-│   │   └── forms.py
-│   └── admin/
-│       ├── __init__.py
-│       ├── views.py
-│       ├── models.py
-│       └── forms.py
-├── static/
-└── templates/
+â”œâ”€â”€ app.py
+â”œâ”€â”€ config.py
+â”œâ”€â”€ requirements.txt
+â”œâ”€â”€ .env
+â”œâ”€â”€ blueprints/
+â”‚   â”œâ”€â”€ __init__.py
+â”‚   â”œâ”€â”€ auth/
+â”‚   â”‚   â”œâ”€â”€ __init__.py
+â”‚   â”‚   â”œâ”€â”€ views.py
+â”‚   â”‚   â”œâ”€â”€ models.py
+â”‚   â”‚   â””â”€â”€ forms.py
+â”‚   â””â”€â”€ admin/
+â”‚       â”œâ”€â”€ __init__.py
+â”‚       â”œâ”€â”€ views.py
+â”‚       â”œâ”€â”€ models.py
+â”‚       â””â”€â”€ forms.py
+â”œâ”€â”€ static/
+â””â”€â”€ templates/
 ```
 
 ### Example Commands

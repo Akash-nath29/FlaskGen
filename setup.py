@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="flaskmason",  # The name of your package
-    version="0.1.2",
+    version="0.1.4",
     packages=find_packages(),
     install_requires=[
         "Flask>=2.0",            

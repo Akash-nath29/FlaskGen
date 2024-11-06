@@ -24,12 +24,6 @@ if __name__ == "__main__":
     app.run(debug=True)
 """,
     "config.py": """\
-
-if __name__ == "__main__":
-    app.run(debug=True)
-""",
-    
-    "config.py": """\
 class Config:
     SECRET_KEY = 'your-secret-key'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///your_database.db'
@@ -39,7 +33,7 @@ class Config:
 FLASK_APP=app.py
 FLASK_ENV=development
 """,
-"urls.py": """\
+    "urls.py": """\
 from flask import Flask, render_template, redirect, url_for
 from blueprints.auth import auth_bp
 from blueprints.admin import admin_bp
@@ -70,7 +64,6 @@ def logout():
 def dashboard():
     return redirect('/admin/dashboard')
 """,
-
     "models.py": """\
 from flask_sqlalchemy import SQLAlchemy
 
@@ -78,7 +71,6 @@ db = SQLAlchemy()
 
 # define the database models
 """,
-
     "requirements.txt": """\
 Flask
 Flask-WTF
@@ -87,12 +79,10 @@ Flask-SQLAlchemy
     "blueprints/auth/__init__.py": """\
 from flask import Blueprint
 
-auth = Blueprint('auth_bp', __name__)
+auth_bp = Blueprint('auth_bp', __name__)
 
 from .urls import *
-        
-        """
-    ,
+""",
     "blueprints/auth/urls.py": """\
 from flask import render_template, request, redirect, url_for
 from . import auth_bp
@@ -115,8 +105,7 @@ def register():
 def logout():
     # Process logout
     return redirect(url_for('auth.login'))
-"""
-    ,
+""",
     "blueprints/auth/forms.py": """\
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
@@ -132,16 +121,14 @@ class RegisterForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
-"""
-    ,
+""",
     "blueprints/admin/__init__.py": """\
 from flask import Blueprint
 
-admin = Blueprint('admin_bp', __name__)
+admin_bp = Blueprint('admin_bp', __name__)
 
 from .urls import *
-"""
-    ,
+""",
     "blueprints/admin/urls.py": """\
 from flask import render_template, request, redirect, url_for
 from . import admin_bp
@@ -149,17 +136,16 @@ from . import admin_bp
 @admin_bp.route('/dashboard')
 def dashboard():
     return render_template('admin/dashboard.html')
-"""
-    ,
+""",
     "blueprints/admin/forms.py": """\
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators = DataRequired
+
 class DashboardForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     submit = SubmitField('Submit')
-"""
-    ,
+""",
     "static/style.css": "",
     "templates/base.html": """\
 <!DOCTYPE html>
@@ -175,9 +161,8 @@ class DashboardForm(FlaskForm):
 """
 }
 
-
-def create_file(path, content):
-    content = file_templates.get(path, "# " + os.path.basename(path))
+def create_file(path, relative_path):
+    content = file_templates.get(relative_path, "# " + os.path.basename(path))
     with open(path, "w") as file:
         file.write(content)
 
@@ -188,7 +173,9 @@ def create_project_structure(project_name):
         folder_path = os.path.join(project_name, folder)
         os.makedirs(folder_path, exist_ok=True)
         for file in files:
-            create_file(os.path.join(folder_path, file), "# " + file)
+            relative_path = os.path.join(folder, file) if folder else file
+            file_path = os.path.join(folder_path, file)
+            create_file(file_path, relative_path)
     
     print(f"Flask project '{project_name}' created successfully!")
 
